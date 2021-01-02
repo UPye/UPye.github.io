@@ -3,7 +3,6 @@
 * {
   margin: 0;
   padding: 0;
-  box-sizing: border-box;
 }
 
 /* pseudo-class */
@@ -18,7 +17,7 @@
 header {
   background-color: var(--primary-color);
   display: flex;
-  justify-content: space-around;
+  justify-content: space-between;
   flex-wrap: wrap;
   position: -webkit-sticky;
   position: sticky;
@@ -28,6 +27,7 @@ header {
   background-position: 80%;
   z-index: 9999;
   color: var(--secondary-color);
+  width: 100%;
 }
 
 /* apply styles to the header nav */
@@ -38,6 +38,10 @@ header h1 {
   margin-bottom: 20px;
   font-size: 28px;
   text-align: center;
+  background: var(--primary-color);
+  color: var(--secondary-color);
+  border-radius: 15px;
+  text-shadow: none;
 }
 
 header nav {
@@ -67,15 +71,6 @@ header nav ul li a:hover {
   text-shadow: none;
 }
 
-body {
-  padding: 10px;
-  margin: 10px;
-  font-family: Georgia, 'Times New Roman', Times, serif;
-  font-size: 18px;
-  line-height: 150%;
-  background-color: var(--tertiary-color);
-}
-
 .hero {
   position: relative;
 }
@@ -88,6 +83,12 @@ body {
 
 }
 
+body {
+  font-family: Georgia, 'Times New Roman', Times, serif;
+  font-size: 18px;
+  line-height: 150%;
+  background-color: var(--tertiary-color);
+}
 
 .container {
   width: 1024px;
@@ -98,6 +99,17 @@ body {
   padding: 10px;
   margin: 10px;
   text-align: center;
+  color: #551A8B;
+  height: 80%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+hr {
+  width: 75%;
+  margin: auto;
+  margin-bottom: 10px;
 }
 
 
@@ -116,9 +128,6 @@ body {
   height: 200px;
 }
 
-#work {
-}
-
 .section-grid-wrapper {
   display: flex;
   width: 100%;
@@ -129,7 +138,8 @@ body {
   background: var(--secondary-color);
   width: 100%;
   display: grid;
-  grid-template-columns: 4fr 2fr 2fr 2fr;
+  grid-template-columns: 2fr 2fr 2fr;
+  grid-template-rows: 2fr 2fr;
   border: 2px solid var(--primary-color);
   color: black;
   font-size: 1.2rem;
@@ -142,33 +152,41 @@ body {
   align-items: center;
   justify-content: center;
   text-align: center;
-  grid-column: ;
+}
+
+.section-grid-item h3, .section-grid-item p {
+  position: relative;
+  top: 200px;
+  transition: top 2s;
+  opacity: 0;
+}
+
+.section-grid-item:hover h3, .section-grid-item:hover p {
+  opacity: 1;
+}
+
+
+.item-1 {
+  grid-column: 1 / span 3;
 }
 
 .project-1 {
   width: 100%;
-  height: 150px;
+  height: 233px;
   background-image: url(./assets/run-buddy.jpg);
   background-size: cover;
-  position: relative;
 }
 
 .project-2 {
-  width: 50%;
-  height: fit-content;
-  position: relative;
+  grid-row: 1 / span 2;
+  background-image: url(./assets/horiseon.jpg);
+  background-size: cover;
+  width: 100%;
+  height: 233px;
 }
 
 .project-3 {
-  width: 50%;
-  height: fit-content;
-  position: relative;
-}
-
-.project-4 {
-  width: 50%;
-  height: fit-content;
-  position: relative;
+  width: 100%;
 }
 
 .contact-info {
@@ -177,3 +195,39 @@ body {
 }
 
 
+@media screen and (max-width: 980) {
+  header {
+    padding-bottom: 0;
+    justify-content: center;
+    position: relative;
+  }
+
+  header h1 {
+    width: 100%;
+    text-align: center;
+  }
+
+  header nav ul {
+    margin-top: 20px;
+    width: 100%;
+    justify-content: center;
+    
+  }
+
+  header nav ul li a {
+    font-size: 20px;
+    width: 100%;
+  }
+
+  .section-title {
+    width: 100%;
+  }
+
+  .hero {
+    width: 100%;
+  }
+
+  .header-img {
+    width: 100%;
+  }
+}
